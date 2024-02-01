@@ -8,6 +8,8 @@ const { isProduction } = require('./config/keys');
 
 const debug = require('debug');
 
+require('./models/User');
+
 const usersRouter = require('./routes/api/users'); // update the import file path
 const csrfRouter = require('./routes/api/csrf');
 
