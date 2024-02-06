@@ -81,11 +81,7 @@ export const sessionErrorsReducer = (state = nullErrors, action) => {
     }
 };
 
-import session from './session';
 
-const rootReducer = combineReducers({
-    session
-});
 
 export const getCurrentUser = () => async dispatch => {
     const res = await jwtFetch('/api/users/current');
