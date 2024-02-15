@@ -9,11 +9,13 @@ const { isProduction } = require('./config/keys');
 const debug = require('debug');
 
 require('./models/User');
+require('./models/Part');
 require('./config/passport'); 
 const passport = require('passport');
 
 const usersRouter = require('./routes/api/users'); // update the import file path
 const csrfRouter = require('./routes/api/csrf');
+const partsRouter = require('./routes/api/parts');
 
 const app = express();
 
@@ -47,6 +49,7 @@ app.use(
 // Attach Express routers
 app.use('/api/users', usersRouter); // update the path
 app.use('/api/csrf', csrfRouter);
+app.use('/api/parts', partsRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
