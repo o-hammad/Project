@@ -24,13 +24,13 @@ const partSchema = new Schema({
         type: String,
     },
     vendorQuoteUnitPrice: {
-        type: Number,
+        type: mongoose.Types.Decimal128,
     },
     vendorQuoteQty: {
         type: Number,
     },
     vendorQuoteUoM: {
-        type: Number,
+        type: String,
     },
     vendorQuoteCond: {
         type: String,
@@ -54,17 +54,14 @@ const partSchema = new Schema({
         type: Number,
     },
     PROSECQuoteUnitPrice: {
-        type: Number,
-    },
-    PROSECQuoteUnitPrice: {
-        type: Number,
+        type: mongoose.Types.Decimal128,
     },
     PROSECQuoteNotes: {
         type: String,
     },
     CustomerPOQty: {
         type: Number,
-    },
+    }
 }, {
     timestamps: true
 });
