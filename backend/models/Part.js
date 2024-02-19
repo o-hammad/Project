@@ -24,7 +24,7 @@ const partSchema = new Schema({
         type: String,
     },
     vendorQuoteUnitPrice: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
     },
     vendorQuoteQty: {
         type: Number,
@@ -54,7 +54,7 @@ const partSchema = new Schema({
         type: Number,
     },
     PROSECQuoteUnitPrice: {
-        type: mongoose.Types.Decimal128,
+        type: Number,
     },
     PROSECQuoteNotes: {
         type: String,

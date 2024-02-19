@@ -6,64 +6,56 @@ const Part = mongoose.model('Part');
 
 // POST /api/parts/create
 router.post('/create', async (req, res, next) => {
+    // saving fields from request
     const inputs = req.body;
     const customerRFQLI = inputs.customerRFQLI;
     const customerRFQPN = inputs.customerRFQPN;
+    const customerRFQDesc = inputs.customerRFQDesc;
+    const customerRFQQty = inputs.customerRFQQty;
+    const customerRFQUoM = inputs.customerRFQUoM;
+    const customerRFQNote = inputs.customerRFQNote;
+    const vendorQuotePN = inputs.vendorQuotePN;
+    const vendorQuoteUnitPrice = inputs.vendorQuoteUnitPrice;
+    const vendorQuoteQty = inputs.vendorQuoteQty;
+    const vendorQuoteUoM = inputs.vendorQuoteUoM;
+    const vendorQuoteCond = inputs.vendorQuoteCond;
+    const vendorQuoteLeadTime = inputs.vendorQuoteLeadTime;
+    const vendorQuoteTrace = inputs.vendorQuoteTrace;
+    const vendorQuoteTagInfo = inputs.vendorQuoteTagInfo;
+    const vendorQuoteSchedB = inputs.vendorQuoteSchedB;
+    const vendorQuoteRemarks = inputs.vendorQuoteRemarks;
+    const PROSECQuoteQty = inputs.PROSECQuoteQty;
+    const PROSECQuoteUnitPrice = inputs.PROSECQuoteUnitPrice;
+    const PROSECQuoteNotes = inputs.PROSECQuoteNotes;
+    const CustomerPOQty = inputs.CustomerPOQty;
 
+    // saving part with all fields
     const part = new Part({
         customerRFQLI: customerRFQLI, 
-        customerRFQPN: customerRFQPN
+        customerRFQPN: customerRFQPN,
+        customerRFQQty: customerRFQQty,
+        customerRFQDesc: customerRFQDesc,
+        customerRFQUoM: customerRFQUoM,
+        customerRFQNote: customerRFQNote,
+        vendorQuotePN: vendorQuotePN,
+        vendorQuoteUnitPrice: vendorQuoteUnitPrice,
+        vendorQuoteQty: vendorQuoteQty,
+        vendorQuoteUoM: vendorQuoteUoM,
+        vendorQuoteCond: vendorQuoteCond,
+        vendorQuoteLeadTime: vendorQuoteLeadTime,
+        vendorQuoteTrace: vendorQuoteTrace,
+        vendorQuoteTagInfo: vendorQuoteTagInfo,
+        vendorQuoteSchedB: vendorQuoteSchedB,
+        vendorQuoteRemarks: vendorQuoteRemarks,
+        PROSECQuoteQty: PROSECQuoteQty,
+        PROSECQuoteUnitPrice: PROSECQuoteUnitPrice,
+        PROSECQuoteNotes: PROSECQuoteNotes,
+        CustomerPOQty: CustomerPOQty
     });
 
     const savedPart = await part.save();
 
     return res.json(savedPart);
-
-    // const level = inputs.difficulty;
-    // const topic = inputs.topic;
-    // const userId = inputs.userId;
-    // const openAIQuiz = await openAI.getquiz(topic, level);
-    // const rawQuiz = JSON.parse(openAIQuiz.message.content);
-
-    // rawQuiz.user = userId;
-    // rawQuiz.attempts = 0;
-    // rawQuiz.difficulty = level;
-    // const coverURL = await openAI.getCoverImage(topic);
-    // rawQuiz.coverUrl = coverURL
-
-    // const formattedQuiz = new Quiz(rawQuiz);
-
-    // const quiz = await formattedQuiz.save();
-
-    // const quizzesList = {};
-    // const questionsList = {};
-    // const response = {};
-    // const questionIds = [];
-
-    // quiz.questionsArray.forEach((question) => {
-    //     questionIds.push(question._id)
-    //     questionsList[question._id] = {
-    //         _id: question._id,
-    //         question: question.question,
-    //         options: question.options,
-    //         answer: question.answer,
-    //         response: question.response
-    //     }
-    // })
-
-    // quizzesList[quiz._id] = {
-    //     _id: quiz._id,
-    //     title: quiz.title,
-    //     user: quiz.user,
-    //     questions: questionIds,
-    //     coverURL: quiz.coverUrl
-
-    // }
-
-    // response.quizzes = quizzesList;
-    // response.questions = questionsList;
-
-    // return res.json(response)
 });
 
 module.exports = router;
