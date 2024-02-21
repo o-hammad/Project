@@ -53,8 +53,10 @@ router.post('/create', async (req, res, next) => {
         CustomerPOQty: CustomerPOQty
     });
 
+    // saving part to database
     const savedPart = await part.save();
 
+    // returning the part to the frontend
     return res.json(savedPart);
 });
 
