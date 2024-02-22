@@ -10,7 +10,9 @@ const debug = require('debug');
 
 require('./models/User');
 require('./models/Part');
-require('./models/Customer')
+require('./models/Customer');
+require('./models/CustomerContact');
+require('./models/CustomerRFQ');
 require('./config/passport'); 
 const passport = require('passport');
 
@@ -18,6 +20,8 @@ const usersRouter = require('./routes/api/users'); // update the import file pat
 const csrfRouter = require('./routes/api/csrf');
 const partsRouter = require('./routes/api/parts');
 const customerRouter = require('./routes/api/customers');
+const customerContactRouter = require('./routes/api/customercontacts');
+const customerRFQRouter = require('./routes/api/customerrfqs');
 
 const app = express();
 
@@ -53,6 +57,8 @@ app.use('/api/users', usersRouter); // update the path
 app.use('/api/csrf', csrfRouter);
 app.use('/api/parts', partsRouter);
 app.use('/api/customers', customerRouter);
+app.use('/api/customercontacts', customerContactRouter);
+app.use('/api/customerrfqs', customerRFQRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
