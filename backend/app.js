@@ -13,6 +13,10 @@ require('./models/Part');
 require('./models/Customer');
 require('./models/CustomerContact');
 require('./models/CustomerRFQ');
+require('./models/ProsecRfQ');
+require('./models/Vendor');
+require('./models/VendorContact');
+require('./models/VendorQuote');
 require('./config/passport'); 
 const passport = require('passport');
 
@@ -22,6 +26,11 @@ const partsRouter = require('./routes/api/parts');
 const customerRouter = require('./routes/api/customers');
 const customerContactRouter = require('./routes/api/customercontacts');
 const customerRFQRouter = require('./routes/api/customerrfqs');
+const prosecRFQRouter = require('./routes/api/prosecrfqs');
+const vendorRouter = require('./routes/api/vendors');
+const vendorContactRouter = require('./routes/api/vendorcontacts');
+const vendorQuoteRouter = require('./routes/api/vendorquotes');
+
 
 const app = express();
 
@@ -59,6 +68,10 @@ app.use('/api/parts', partsRouter);
 app.use('/api/customers', customerRouter);
 app.use('/api/customercontacts', customerContactRouter);
 app.use('/api/customerrfqs', customerRFQRouter);
+app.use('/api/prosecrfqs', prosecRFQRouter);
+app.use('/api/vendors', vendorRouter);
+app.use('/api/vendorcontacts', vendorContactRouter);
+app.use('/api/vendorquotes', vendorQuoteRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
