@@ -20,6 +20,7 @@ require('./models/VendorQuote');
 require('./models/ProsecQuote');
 require('./models/CustomerPO');
 require('./models/ProsecPO');
+require('./models/ProsecInvoicePL');
 require('./config/passport'); 
 const passport = require('passport');
 
@@ -36,6 +37,7 @@ const vendorQuoteRouter = require('./routes/api/vendorquotes');
 const prosecQuoteRouter = require('./routes/api/prosecquotes');
 const customerPORouter = require('./routes/api/customerpos');
 const prosecPORouter = require('./routes/api/prosecpos');
+const prosecInvoiceRouter = require('./routes/api/prosecinvoices');
 
 const app = express();
 
@@ -80,6 +82,7 @@ app.use('/api/vendorquotes', vendorQuoteRouter);
 app.use('/api/prosecquotes', prosecQuoteRouter);
 app.use('/api/customerpos', customerPORouter);
 app.use('/api/prosecpos', prosecPORouter);
+app.use('/api/prosecinvoices', prosecInvoiceRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
