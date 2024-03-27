@@ -1,9 +1,9 @@
 function MainPage() {
     return (
         <>
-            <p>A Twitter Clone</p>
+            <p>PROSEC VISION</p>
             <footer>
-                Copyright &copy; 2022 Chirper
+                Copyright &copy; 2022 PROSEC VISION
             </footer>
         </>
     );

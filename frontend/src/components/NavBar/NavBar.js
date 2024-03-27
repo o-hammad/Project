@@ -34,7 +34,7 @@ function NavBar() {
 
     return (
         <>
-            <h1>Chirper</h1>
+            <h1>PROSEC VISION</h1>
             {getLinks()}
         </>
     );
