@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const CustomerRFQ = mongoose.model('CustomerRFQ');
+const { restoreUser } = require('../../config/passport');
 
 // POST /api/customerrfq/create
 router.post('/create', async (req, res, next) => {
@@ -30,6 +31,38 @@ router.post('/create', async (req, res, next) => {
 
     // returning the customer rfq to the frontend
     return res.json(savedCustomerRFQ);
+});
+
+
+/* GET rfqs listing. */
+router.get('/', restoreUser, async (req, res) => {
+    try {
+        const rfqs = await CustomerRFQ.find({});
+        const rfqsList = {};
+        const partsList = {};
+        const response = {};
+
+        rfqs.forEach((rfq) => {
+            const partIds = [];
+            rfq.parts.forEach((part) => {
+                partIds.push(part._id)
+                partsList[part._id] = {
+                    _id: part._id,
+                }
+            })
+
+            rfqsList[rfq._id] = {
+                _id: rfq._id,
+                parts: partIds,
+            }
+        });
+
+        // response.customerrfqs = rfqsList;
+        return res.json(rfqsList);
+    }
+    catch (err) {
+        return res.json([]);
+    }
 });
 
 module.exports = router;

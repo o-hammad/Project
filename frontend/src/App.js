@@ -10,6 +10,7 @@ import LoginForm from './components/SessionForms/LoginForm';
 import SignupForm from './components/SessionForms/SignupForm';
 
 import { getCurrentUser } from './store/session';
+import CustomerRFQ from './components/CustomerRFQ/CustomerRFQ';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
         <AuthRoute exact path="/" component={MainPage} />
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
+        <AuthRoute exact path="/customerrfqs" component={CustomerRFQ} />
       </Switch>
     </>
   );
