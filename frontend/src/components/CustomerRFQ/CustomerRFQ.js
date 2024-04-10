@@ -5,15 +5,21 @@ import { fetchRFQs } from "../../store/customerrfq";
 
 function CustomerRFQ() {
     const dispatch = useDispatch();
+    const rfqs = useSelector(state => state.customerrfqs)
 
     useEffect(() => {
         dispatch(fetchRFQs())
     }, [dispatch])
 
+    let rfqList = Object.values(rfqs)
 
     return (
         <>
-            Test
+            {rfqList.map((rfq) => {
+                return (
+                    <div>{rfq._id}</div>
+                )
+            })}
         </>
     );
 }
