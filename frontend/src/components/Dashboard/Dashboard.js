@@ -5,7 +5,9 @@ function Dashboard() {
                 <div className="customerrfqs">
                     Customer RFQ Database
                 </div>
-
+                <div className="prosecrfqs">
+                    Prosec RFQ Database
+                </div>
             </div>
         </>
     );

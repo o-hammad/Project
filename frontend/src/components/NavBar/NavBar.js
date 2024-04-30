@@ -2,10 +2,17 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css';
 import { logout } from '../../store/session';
+import { useState } from 'react';
 
 function NavBar() {
     const loggedIn = useSelector(state => !!state.session.user);
     const dispatch = useDispatch();
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to track dropdown menu visibility
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
+    }
 
     const logoutUser = e => {
         e.preventDefault();
@@ -16,12 +23,27 @@ function NavBar() {
         if (loggedIn) {
             return (
                 <div className="links-nav">
+                    <div className="dropdown">
+                        <button className="dropbtn" onClick={toggleDropdown}>Menu</button>
+                        {/* Render dropdown content based on state */}
+                        {isDropdownOpen && (
+                            <div className="dropdown-content">
+                                <Link to={'/customerrfqs'}>Customer RFQs</Link>
+                                <Link to={'/profile'}>Profile</Link>
+                                <Link to={'/tweets/new'}>Write a Tweet</Link>
+                            </div>
+                        )}
+                    </div>
+                    <button onClick={logoutUser}>Logout</button>
+                </div>
+            );
+                {/* </div>
+                <div className="links-nav">
                     <Link to={'/customerrfqs'}>Customer RFQs</Link>
                     <Link to={'/profile'}>Profile</Link>
                     <Link to={'/tweets/new'}>Write a Tweet</Link>
                     <button onClick={logoutUser}>Logout</button>
-                </div>
-            );
+                </div> */}
         } else {
             return (
                 <div className="links-auth">
@@ -33,10 +55,10 @@ function NavBar() {
     }
 
     return (
-        <>
+        <div className='navbar'>
             <h1>PROSEC VISION</h1>
             {getLinks()}
-        </>
+        </div>
     );
 }
 
