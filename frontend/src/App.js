@@ -12,6 +12,10 @@ import SignupForm from './components/SessionForms/SignupForm';
 import { getCurrentUser } from './store/session';
 import CustomerRFQ from './components/CustomerRFQ/CustomerRFQ';
 import Dashboard from './components/Dashboard/Dashboard';
+import ProsecRFQ from './components/ProsecRFQ/ProsecRFQ';
+import VendorQuote from './components/VendorQuote/VendorQuote';
+import ProsecQuote from './components/ProsecQuote/ProsecQuote';
+import CustomerPO from './components/CustomerPO/CustomerPO';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,8 +32,12 @@ function App() {
         <AuthRoute exact path="/login" component={LoginForm} />
         <AuthRoute exact path="/signup" component={SignupForm} />
 
-        <ProtectedRoute exact path="/customerrfqs" component={CustomerRFQ} />
         <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+        <ProtectedRoute exact path="/customerrfqs" component={CustomerRFQ} />
+        <ProtectedRoute exact path="/prosecrfqs" component={ProsecRFQ} />
+        <ProtectedRoute exact path="/vendorquotes" component={VendorQuote} />
+        <ProtectedRoute exact path="/prosecquotes" component={ProsecQuote} />
+        <ProtectedRoute exact path="/customerpos" component={CustomerPO} />
       </Switch>
     </>
   );

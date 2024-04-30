@@ -1,4 +1,4 @@
-function ProsecRFQ() {
+function CustomerPO() {
     return (
         <>
             <p>PROSEC VISION</p>
@@ -9,4 +9,4 @@ function ProsecRFQ() {
     );
 }
 
-export default ProsecRFQ;
+export default CustomerPO;

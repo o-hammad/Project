@@ -28,13 +28,15 @@ function NavBar() {
                         {/* Render dropdown content based on state */}
                         {isDropdownOpen && (
                             <div className="dropdown-content">
-                                <Link to={'/customerrfqs'}>Customer RFQs</Link>
-                                <Link to={'/profile'}>Profile</Link>
-                                <Link to={'/tweets/new'}>Write a Tweet</Link>
+                                <Link to={'/customerrfqs'}>Customer RFQ Database</Link>
+                                <Link to={'/prosecrfqs'}>Prosec RFQ Database</Link>
+                                <Link to={'/vendorquotes'}>Vendor Quote Database</Link>
+                                <Link to={'/prosecquotes'}>Prosec Quote Database</Link>
+                                <Link to={'/customerpos'}>Customer PO Database</Link>
+                                <button onClick={logoutUser}>Logout</button>
                             </div>
                         )}
                     </div>
-                    <button onClick={logoutUser}>Logout</button>
                 </div>
             );
                 {/* </div>
