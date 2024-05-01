@@ -16,6 +16,9 @@ import ProsecRFQ from './components/ProsecRFQ/ProsecRFQ';
 import VendorQuote from './components/VendorQuote/VendorQuote';
 import ProsecQuote from './components/ProsecQuote/ProsecQuote';
 import CustomerPO from './components/CustomerPO/CustomerPO';
+import ProsecPO from './components/ProsecPO/ProsecPO';
+import ProsecInvoice from './components/ProsecInvoice/ProsecInvoice';
+import VendorInvoice from './components/VendorInvoice/VendorInvoice';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +41,9 @@ function App() {
         <ProtectedRoute exact path="/vendorquotes" component={VendorQuote} />
         <ProtectedRoute exact path="/prosecquotes" component={ProsecQuote} />
         <ProtectedRoute exact path="/customerpos" component={CustomerPO} />
+        <ProtectedRoute exact path="/prosecpos" component={ProsecPO} />
+        <ProtectedRoute exact path="/prosecinvoices" component={ProsecInvoice} />
+        <ProtectedRoute exact path="/vendorinvoices" component={VendorInvoice} />
       </Switch>
     </>
   );

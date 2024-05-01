@@ -17,6 +17,15 @@ function Dashboard() {
                 <div className="customerpos">
                     Customer PO Database
                 </div>
+                <div className="prosecpos">
+                    Prosec PO Database
+                </div>
+                <div className="prosecinvoices">
+                    Prosec Invoice & Packing List Database
+                </div>
+                <div className="vendorinvoices">
+                    Vendor Invoice Database
+                </div>
             </div>
         </>
     );

@@ -1,0 +1,13 @@
+.dashboard-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Adjust the width as needed
+    grid-gap: 20px; // Adjust the gap between items
+    justify-items: center; // Center items horizontally
+}
+
+.dashboard-icons>div {
+    // Define styles for each grid item
+    width: 100%;
+    height: 100px; // Adjust the height as needed
+    background-color: lightblue; // Example background color
+}

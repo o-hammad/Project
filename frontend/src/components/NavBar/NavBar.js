@@ -33,6 +33,9 @@ function NavBar() {
                                 <Link to={'/vendorquotes'}>Vendor Quote Database</Link>
                                 <Link to={'/prosecquotes'}>Prosec Quote Database</Link>
                                 <Link to={'/customerpos'}>Customer PO Database</Link>
+                                <Link to={'/prosecpos'}>Prosec PO Database</Link>
+                                <Link to={'/prosecinvoices'}>Prosec Invoice & Packing List Database</Link>
+                                <Link to={'/vendorinvoices'}>Vendor Invoice Database</Link>
                                 <button onClick={logoutUser}>Logout</button>
                             </div>
                         )}
