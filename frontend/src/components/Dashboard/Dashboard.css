@@ -1,0 +1,24 @@
+.dashboard-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    grid-auto-rows: auto;
+    /* Automatically sized rows */
+    justify-content: center;
+    /* Center the grid horizontally */
+    align-content: center;
+    /* Center the grid vertically */
+    grid-gap: 20px;
+    /* Gap between grid items */
+    max-width: 1000px;
+    /* Limit the maximum width of the grid */
+    margin: 0 auto;
+    /* Center the grid on the page */
+}
+
+.dashboard-icons>div {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

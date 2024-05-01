@@ -28,6 +28,7 @@ function NavBar() {
                         {/* Render dropdown content based on state */}
                         {isDropdownOpen && (
                             <div className="dropdown-content">
+                                <Link to={'/dashboard'}>Dashboard</Link>
                                 <Link to={'/customerrfqs'}>Customer RFQ Database</Link>
                                 <Link to={'/prosecrfqs'}>Prosec RFQ Database</Link>
                                 <Link to={'/vendorquotes'}>Vendor Quote Database</Link>
