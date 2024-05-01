@@ -4,6 +4,12 @@
 
 .navbar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
 }
 
 .links-nav {
@@ -33,6 +39,8 @@
     /* Position the dropdown content below the button */
     left: 0;
     /* Align the dropdown content with the button */
+    right: auto;
+    /* Reset right positioning */
 }
 
 .dropdown-content a {
@@ -48,4 +56,9 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+    /* Adjust the dropdown content position */
+    left: auto;
+    /* Reset left positioning */
+    right: 0;
+    /* Align to the right of the button */
 }

@@ -43,13 +43,6 @@ function NavBar() {
                     </div>
                 </div>
             );
-                {/* </div>
-                <div className="links-nav">
-                    <Link to={'/customerrfqs'}>Customer RFQs</Link>
-                    <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/tweets/new'}>Write a Tweet</Link>
-                    <button onClick={logoutUser}>Logout</button>
-                </div> */}
         } else {
             return (
                 <div className="links-auth">
