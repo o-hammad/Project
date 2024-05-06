@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const CustomerRFQ = mongoose.model('CustomerRFQ');
 const { restoreUser } = require('../../config/passport');
 
-// POST /api/customerrfq/create
+// POST /api/customerrfqs/create
 router.post('/create', async (req, res, next) => {
     // saving fields from request
     const inputs = req.body;
@@ -44,6 +44,9 @@ router.get('/', restoreUser, async (req, res) => {
 
         rfqs.forEach((rfq) => {
             const partIds = [];
+            const customer = rfq.customer;
+            const customerRFQNo = rfq.customerRFQNo;
+            const customerContact = rfq.customerContact;
             rfq.parts.forEach((part) => {
                 partIds.push(part._id)
                 partsList[part._id] = {
@@ -54,6 +57,9 @@ router.get('/', restoreUser, async (req, res) => {
             rfqsList[rfq._id] = {
                 _id: rfq._id,
                 parts: partIds,
+                customer: customer,
+                customerRFQNo: customerRFQNo,
+                customerContact: customerContact,
             }
         });
 

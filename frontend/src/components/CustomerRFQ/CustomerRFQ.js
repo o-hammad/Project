@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchRFQs } from "../../store/customerrfq";
+import './CustomerRFQ.css';
 
 
 function CustomerRFQ() {
@@ -17,7 +18,12 @@ function CustomerRFQ() {
         <>
             {rfqList.map((rfq) => {
                 return (
-                    <div>{rfq._id}</div>
+                    <div className="customer-rfq">
+                        <div>{rfq._id}</div>
+                        <div>{rfq.customer}</div>
+                        <div>{rfq.customerRFQNo}</div>
+                        <div>{rfq.customerContact}</div>
+                    </div>
                 )
             })}
         </>

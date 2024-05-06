@@ -27,7 +27,7 @@ export const removeRFQ = rfqId => {
 
 // useSelectors
 export const getRFQs = state => {
-    if (state.customerrfqs) return (state.customerrfqs.customerrfqs);
+    if (state.customerrfqs) return (state.customerrfqs);
     return [];
 }
 
