@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const Customer = mongoose.model('Customer');
+const { restoreUser } = require('../../config/passport');
 
 // POST /api/customers/create
 router.post('/create', async (req, res, next) => {
@@ -42,6 +43,29 @@ router.post('/create', async (req, res, next) => {
 
     // returning the customer to the frontend
     return res.json(savedCustomer);
+});
+
+/* GET rfqs listing. */
+router.get('/', restoreUser, async (req, res) => {
+    try {
+        const customers = await Customer.find({});
+        const customerList = {};
+
+        customers.forEach((customer) => {
+            const customerName = customer.officeName;
+
+            customerList[customer._id] = {
+                _id: customer._id,
+                customer: customerName
+            }
+        });
+
+        // response.customerrfqs = rfqsList;
+        return res.json(customerList);
+    }
+    catch (err) {
+        return res.json([]);
+    }
 });
 
 module.exports = router;

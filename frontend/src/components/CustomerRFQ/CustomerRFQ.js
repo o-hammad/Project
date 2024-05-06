@@ -2,17 +2,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchRFQs } from "../../store/customerrfq";
 import './CustomerRFQ.css';
+import { fetchCustomers } from "../../store/customer";
 
 
 function CustomerRFQ() {
     const dispatch = useDispatch();
-    const rfqs = useSelector(state => state.customerrfqs)
+    const rfqs = useSelector(state => state.customerrfqs);
+    const customers = useSelector(state => state.customers);
 
     useEffect(() => {
-        dispatch(fetchRFQs())
+        dispatch(fetchRFQs());
+        dispatch(fetchCustomers())
     }, [dispatch])
 
-    let rfqList = Object.values(rfqs)
+    let rfqList = Object.values(rfqs);
+    let customerList = Object.values(customers)
 
     return (
         <div className="customer-rfq-table-container">
@@ -30,7 +34,7 @@ function CustomerRFQ() {
                     {Object.values(rfqs).map((rfq, index) => (
                         <tr key={index}>
                             <td>{rfq._id}</td>
-                            <td>{rfq.customer}</td>
+                            <td>{customers[rfq.customer]?.customer}</td>
                             <td>{rfq.customerRFQNo}</td>
                             <td>{rfq.customerContact}</td>
                             {/* Add more table cells for additional RFQ properties */}
