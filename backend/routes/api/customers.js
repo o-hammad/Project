@@ -45,7 +45,7 @@ router.post('/create', async (req, res, next) => {
     return res.json(savedCustomer);
 });
 
-/* GET rfqs listing. */
+/* GET customer listing. */
 router.get('/', restoreUser, async (req, res) => {
     try {
         const customers = await Customer.find({});

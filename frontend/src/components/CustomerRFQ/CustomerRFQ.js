@@ -3,20 +3,24 @@ import { useEffect, useState } from "react"
 import { fetchRFQs } from "../../store/customerrfq";
 import './CustomerRFQ.css';
 import { fetchCustomers } from "../../store/customer";
+import { fetchCustomerContacts } from "../../store/customercontact"
 
 
 function CustomerRFQ() {
     const dispatch = useDispatch();
     const rfqs = useSelector(state => state.customerrfqs);
     const customers = useSelector(state => state.customers);
+    const customerContacts = useSelector(state => state.customercontacts);
 
     useEffect(() => {
         dispatch(fetchRFQs());
-        dispatch(fetchCustomers())
+        dispatch(fetchCustomers());
+        dispatch(fetchCustomerContacts())
     }, [dispatch])
 
     let rfqList = Object.values(rfqs);
-    let customerList = Object.values(customers)
+    let customerList = Object.values(customers);
+    let customerContactList = Object.values(customerContacts);
 
     return (
         <div className="customer-rfq-table-container">
@@ -27,6 +31,7 @@ function CustomerRFQ() {
                         <th>Customer</th>
                         <th>Customer RFQ No</th>
                         <th>Customer Contact</th>
+                        <th>Customer Contact Email</th>
                         {/* Add more headers as needed */}
                     </tr>
                 </thead>
@@ -36,7 +41,8 @@ function CustomerRFQ() {
                             <td>{rfq._id}</td>
                             <td>{customers[rfq.customer]?.customer}</td>
                             <td>{rfq.customerRFQNo}</td>
-                            <td>{rfq.customerContact}</td>
+                            <td>{customerContacts[rfq.customerContact]?.contactName}</td>
+                            <td>{customerContacts[rfq.customerContact]?.contactEmail}</td>
                             {/* Add more table cells for additional RFQ properties */}
                         </tr>
                     ))}

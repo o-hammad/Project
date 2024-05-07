@@ -4,12 +4,14 @@ import session from './session';
 import errors from './errors';
 import customerrfqs from './customerrfq';
 import customers from './customer';
+import customercontacts from './customercontact'
 
 const rootReducer = combineReducers({
     session,
     errors,
     customerrfqs,
-    customers
+    customers,
+    customercontacts
 });
 
 let enhancer;
