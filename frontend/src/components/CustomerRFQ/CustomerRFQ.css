@@ -1,3 +1,12 @@
 .customer-rfq {
     display: flex;
 }
+
+a + div {
+    display: none;
+}
+
+a:hover + div {
+    display: block;
+    color: green;
+}
