@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { fetchRFQs } from "../../store/customerrfq";
-import './CustomerRFQ.css';
 import { fetchCustomers } from "../../store/customer";
 import { fetchCustomerContacts } from "../../store/customercontact";
 import Modal from 'react-modal';
 import RFQFormModal from "./RFQFormModal";
+import './CustomerRFQ.css';
 
 
 function CustomerRFQ() {
@@ -41,6 +41,8 @@ function CustomerRFQ() {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 ariaHideApp={false} // Disable ariaHideApp warning
+                className="react-modal-content"
+                overlayClassName="react-modal-overlay"
             >
                 <button onClick={closeModal}>Close Modal</button>
 

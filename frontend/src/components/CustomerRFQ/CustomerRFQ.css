@@ -10,3 +10,26 @@ a:hover + div {
     display: block;
     color: green;
 }
+
+.react-modal-content {
+    background-color: lightblue;
+    /* Example color change for modal */
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    margin: auto;
+    position: relative;
+}
+
+.react-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Example color change for overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
