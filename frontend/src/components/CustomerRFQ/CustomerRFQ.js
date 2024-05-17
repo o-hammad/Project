@@ -47,7 +47,11 @@ function CustomerRFQ() {
                 <button onClick={closeModal}>Close Modal</button>
 
                 {/* Render your modal form component */}
-                <RFQFormModal closeModal={closeModal} />
+                <RFQFormModal 
+                    closeModal={closeModal}
+                    customers={customers}
+                    customerContacts={customerContacts} 
+                />
             </Modal>
             
             <table className="customer-rfq-table">
